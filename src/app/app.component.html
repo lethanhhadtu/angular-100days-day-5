@@ -1,0 +1,41 @@
+<hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p>
+
+<!-- for (let soemthing of users) {
+
+ } 
+
+- $implicit: T	Giá trị của phần tử trong danh sách ở lần lặp hiện tại
+- index: number	index của lần lặp hiện tại
+- count: number	số lượng phần tử trong danh sách
+- first: boolean	True nếu đây là phần tử đầu tiên trong danh sách
+- last: boolean	True nếu đây là phần tử cuối cùng trong danh sách
+- even: boolean	True nếu đây là phần tử ở index chẵn
+- odd: boolean	True nếu đây là phần tử ở index lẻ
+
+-->
+<ul>
+  <ng-container *ngIf="users.length > 0; else noUsers">
+    <li
+      *ngFor="let u of users; index as idx; count as toal; first as isFirst; last as isLast; even as isEven; odd as isOdd"
+    >
+      <span>{{u.id}} - {{u.name}} - {{u.phone}}</span> <br />
+      <span>At index: {{idx}}</span> <br />
+      <span>Number at index {{idx}} out of total {{toal}}</span> <br />
+      <span *ngIf="isEven">I am Even number</span>
+      <span *ngIf="isOdd">I am Odd number</span>
+      <span *ngIf="isLast">I am Last number</span>
+      <span *ngIf="isFirst">I am Fisrt number</span>
+      <br />
+      <br />
+    </li>
+  </ng-container>
+  <ng-template #noUsers>
+    No User
+  </ng-template>
+</ul>
+<button *ngFor="let tag of tags; last as isLast" [class.right-margin]="!isLast">
+  {{tag}}
+</button>
